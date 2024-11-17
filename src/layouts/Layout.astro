@@ -1,0 +1,117 @@
+---
+import { theme } from "../styles/theme";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Navigation from "../components/Navigation.astro";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={title} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="generator" content={Astro.generator} />
+		<title>Ветеринарная клиника Каштанка {title}</title>
+	</head>
+	<body class="w-full">
+		<Header />
+		<Navigation />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</body>
+	<style
+		is:global
+		define:vars={{
+			primaryColor: theme.primary,
+			secondaryColor: theme.secondary,
+			highlightDarkColor: theme.highlight.dark,
+			highlightLightColor: theme.highlight.light,
+			startBackColor: theme.background.start,
+			stopBackColor: theme.background.stop,
+		}}
+	>
+		@font-face {
+			font-family: "Elisabethische";
+			src: url(/Elisabethische.woff2);
+		}
+
+		html {
+			font-family: "Geologica", sans-serif;
+			color: var(--primaryColor);
+			fill: var(--primaryColor);
+			font-size: 14px;
+			background: linear-gradient(
+				to bottom,
+				var(--startBackColor) 0%,
+				var(--stopBackColor) 100%
+			);
+			width: 100vw;
+		}
+		code {
+			font-family:
+				Menlo,
+				Monaco,
+				Lucida Console,
+				Liberation Mono,
+				DejaVu Sans Mono,
+				Bitstream Vera Sans Mono,
+				Courier New,
+				monospace;
+		}
+		p {
+			color: var(--secondaryColor);
+		}
+
+		.elisa-regular {
+			font-family: "Elisabethische", serif;
+			font-weight: 400;
+			font-style: normal;
+			/* font-size: 2.4rem; */
+			color: var(--highlightDarkColor);
+		}
+
+		.geologica-common {
+			font-family: "Geologica", sans-serif;
+			font-optical-sizing: auto;
+			font-style: normal;
+			font-variation-settings:
+				"slnt" 0,
+				"CRSV" 0,
+				"SHRP" 0;
+		}
+		.svg {
+			width: 5rem;
+			fill: var(--highlightDarkColor);
+		}
+		.caption-bold {
+			font-weight: 900;
+			/* font-size: 4rem; */
+			line-height: 1;
+		}
+		.solid {
+			background-color: var(--highlightLightColor);
+		}
+	</style>
+	<style>
+		main {
+			line-height: 1.6;
+			min-height: 81vh;
+		}
+	</style>
+</html>

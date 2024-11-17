@@ -1,0 +1,35 @@
+---
+import logo from "../assets/kashtanka-logo.svg?raw";
+import logoText from "../assets/kashtanka-text.svg?raw";
+---
+
+<a href="/">
+    <header class="md:pt-10 pt-5 md:px-10 pl-4 w-max md:flex justify-start">
+        <div class="svg-logo svg-common md:w-72 w-0 md:visible invisible">
+            <Fragment set:html={logo} />
+        </div>
+        <div class="md:ml-4">
+            <h1 class="p-0 md:mt-4 svg-logo-text svg-common" title="Каштанка">
+                <Fragment set:html={logoText} />
+            </h1>
+            <div class="description elisa-regular md:text-6xl text-4xl">
+                ветеринарная клиника
+            </div>
+        </div>
+    </header>
+</a>
+<style>
+    h1 {
+        font-size: 4rem;
+        font-weight: 400;
+        line-height: 1;
+    }
+    .svg-common {
+        fill: var(--highlightDarkColor);
+    }
+
+    .description {
+        /* font-size: 4rem; */
+        line-height: 1;
+    }
+</style>

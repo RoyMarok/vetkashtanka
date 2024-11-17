@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro";
+import IconContainer from "../components/IconContainer.astro";
+import CaptionWrapper from "../components/CaptionWrapper.astro";
+import phone from "../assets/phone.svg?raw";
+import mail from "../assets/mail.svg?raw";
+import map from "../assets/map.svg?raw";
+import clock from "../assets/clock.svg?raw";
+---
+
+<Layout title="Главная информация">
+	<div class="text-content md:px-10 md:ml-40 w-max pt-10 pb-20">
+		<IconContainer title="Куда звонить?" svgImg={phone}>
+			<CaptionWrapper>
+				<a href="tel:84952344260" title="Позвонить в клинику">
+					<strong>8 (495) </strong>234-42-60
+				</a>
+			</CaptionWrapper>
+		</IconContainer>
+		<IconContainer title="Куда писать?" svgImg={mail}>
+			<CaptionWrapper>
+				<a href="mailto:vetkashtanka@mail.ru"
+					>vetkashtanka<strong>@mail.ru</strong></a
+				>
+			</CaptionWrapper>
+		</IconContainer>
+		<IconContainer title="Когда приходить?" svgImg={clock}>
+			<CaptionWrapper>10-20</CaptionWrapper>
+			<p>Первичный прием врача до 19:30</p>
+		</IconContainer>
+		<IconContainer title="Как найти?" svgImg={map}>
+			<CaptionWrapper>
+				<strong>Москва</strong>
+			</CaptionWrapper>
+			<CaptionWrapper> ул.Металлургов, д.60 </CaptionWrapper>
+		</IconContainer>
+	</div>
+	<div class="">
+		<div class="solid w-full h-1"></div>
+		<script
+			type="text/javascript"
+			charset="utf-8"
+			async
+			src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A89176d314dba9bd66469dcb61b7a3f45d2ad1d8b2c2b25f839129745b8dbde64&width=100%25&height=600&lang=ru_RU&scroll=true"
+		></script>
+	</div>
+</Layout>
