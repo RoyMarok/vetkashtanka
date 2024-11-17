@@ -1,0 +1,29 @@
+---
+import { getPrice } from "./PriceTable.astro";
+
+interface Props {
+    id: number;
+    title: string;
+    options?: { title: string; price: string; }[];
+}
+const { id, title, options = [] } = Astro.props;
+
+const optionsLength = (options || []).length;
+---
+{options.map((optionElement, optionKey) => (
+    <tr class="cell">
+        {optionKey === 0 &&
+            <td class="cell-item title align-middle px-4 w-10" rowspan={optionsLength}>{id + 1}.</td>
+            <td class="cell-item title align-middle pr-4" rowspan={optionsLength}>
+                {title}
+            </td>}
+        <td class="cell-item title align-middle pl-4">
+            {optionElement?.title}
+        </td>
+        <td class="cell-item price elisa-regular align-middle pt-2 px-4  md:w-72">
+            {getPrice(optionElement?.price)}
+        </td>
+    </tr>
+    
+))}
+

@@ -1,51 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getEntry } from "astro:content";
+import PriceTable from "../components/PriceTable.astro";
 
 interface PricesTypes {
     title: string;
     price: string;
 }
 
-const prices = await getEntry("prices", "common");
+const pricesCommon = await getEntry("prices", "common");
+const pricesSurgery = await getEntry("prices", "surgery");
 
-const pageName = "Цены";
+const pageName = "Услуги";
 ---
 
 <Layout title={pageName}>
-    <div class="text-content md:pl-14 md:ml-72 w-full py-10">
-        <div class="caption-bold elisa-regular md:pl-0 pl-4 text-5xl">
-            {pageName}
-        </div>
-        <table class="mt-10">
-            {
-                prices.data.map((priceElement, id) => (
-                    <tr class="cell ">
-                        <td class="cell-item title align-middle px-4">
-                            {id + 1}.
-                        </td>
-                        <td class="cell-item title align-middle">
-                            {priceElement.title}
-                        </td>
-                        <td class="cell-item price elisa-regular align-middle pt-2 px-4">
-                            {new Intl.NumberFormat("ru-RU", {
-                                style: "currency",
-                                currency: "RUB",
-                                maximumFractionDigits: 0,
-                            }).format(parseInt(priceElement.price, 10))}
-                        </td>
-                    </tr>
-                ))
-            }
-        </table>
+    <div class="text-content md:pl-14 md:pr-96 md:ml-72 py-10">
+        <PriceTable title={pageName} collection={pricesCommon} />
+        <PriceTable title="Хирургия" collection={pricesSurgery} />
     </div>
 </Layout>
-
-<style>
-    .cell:nth-child(odd) {
-        background-color: var(--startBackColor);
-    }
-    .price {
-        font-size: 1.75rem;
-    }
-</style>

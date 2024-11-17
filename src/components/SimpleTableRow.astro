@@ -1,0 +1,13 @@
+---
+const { id, title, price } = Astro.props;
+---
+
+<tr class="cell">
+    <td class="cell-item title align-middle px-4 w-10">{id + 1}.</td>
+    <td class="cell-item title align-middle">
+        {title}
+    </td>
+    <td class="cell-item price elisa-regular align-middle pt-2 px-4 md:w-72">
+        {price}
+    </td>
+</tr>

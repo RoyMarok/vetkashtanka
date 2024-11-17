@@ -1,0 +1,49 @@
+---
+import type { CollectionEntry } from "astro:content";
+import SimpleTableRow from "./SimpleTableRow.astro";
+import ComplexTableRow from "./ComplexTableRow.astro";
+
+export const getPrice = (input: string) => {
+    const splitedInput = input.split("-");
+    const output = splitedInput.map((item, id) =>
+        new Intl.NumberFormat("ru-RU", {
+            style: id === splitedInput.length - 1 ? "currency" : "decimal",
+            currency: "RUB",
+            maximumFractionDigits: 0,
+        }).format(parseInt(item || "0", 10)),
+    );
+    return output.join(" - ");
+};
+
+interface Props {
+    title: string;
+    collection: CollectionEntry<"prices">;
+}
+
+const { title, collection } = Astro.props;
+---
+
+<div class="mb-4">
+    <div class="caption-bold elisa-regular md:pl-0 pl-4 text-5xl">
+        {title}
+    </div>
+    <table class="mt-10 w-full">
+        {
+            collection.data.map((priceElement, id) =>
+                (priceElement?.options || []).length ? (
+                    <ComplexTableRow
+                        id={id}
+                        title={priceElement.title}
+                        options={priceElement.options}
+                    />
+                ) : (
+                    <SimpleTableRow
+                        id={id}
+                        title={priceElement.title}
+                        price={getPrice(priceElement?.price || "0")}
+                    />
+                ),
+            )
+        }
+    </table>
+</div>
