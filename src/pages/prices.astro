@@ -9,14 +9,37 @@ interface PricesTypes {
 }
 
 const pricesCommon = await getEntry("prices", "common");
+const pricesTherapy = await getEntry("prices", "therapy");
 const pricesSurgery = await getEntry("prices", "surgery");
+const pricesOftal = await getEntry("prices", "oftal");
+const pricesDental = await getEntry("prices", "dental");
 
 const pageName = "Услуги";
+const description = "Без учета стоимости лекарств и расходных материалов";
+const descriptionSurgery =
+    "В стоимость манипуляций не включена седация, наркозные препараты, шовный материал в блистерах, попоны, защитные воротники";
 ---
 
 <Layout title={pageName}>
     <div class="text-content md:pl-14 md:pr-96 md:ml-72 py-10">
         <PriceTable title={pageName} collection={pricesCommon} />
-        <PriceTable title="Хирургия" collection={pricesSurgery} />
+        <PriceTable
+            title="Терапия"
+            collection={pricesTherapy}
+            description={description}
+        />
+        <PriceTable
+            title="Хирургия"
+            collection={pricesSurgery}
+            description={descriptionSurgery}
+        />
+        <PriceTable
+            title="Стоматология"
+            collection={pricesDental}
+        />
+        <PriceTable
+            title="Офтальмология"
+            collection={pricesOftal}
+        />
     </div>
 </Layout>

@@ -17,33 +17,37 @@ export const getPrice = (input: string) => {
 
 interface Props {
     title: string;
+    description?: string;
     collection: CollectionEntry<"prices">;
 }
 
-const { title, collection } = Astro.props;
+const { title, collection, description } = Astro.props;
 ---
 
 <div class="mb-4">
     <div class="caption-bold elisa-regular md:pl-0 pl-4 text-5xl">
         {title}
     </div>
-    <table class="mt-10 w-full">
+    {Boolean(description) && <p>{description}</p>}
+    <table class="my-10 w-full">
         {
-            collection.data.map((priceElement, id) =>
-                (priceElement?.options || []).length ? (
-                    <ComplexTableRow
-                        id={id}
-                        title={priceElement.title}
-                        options={priceElement.options}
-                    />
-                ) : (
-                    <SimpleTableRow
-                        id={id}
-                        title={priceElement.title}
-                        price={getPrice(priceElement?.price || "0")}
-                    />
-                ),
-            )
+            collection.data
+                .filter((item) => item?.title)
+                .map((priceElement, id) =>
+                    (priceElement?.options || []).length ? (
+                        <ComplexTableRow
+                            id={id}
+                            title={priceElement.title}
+                            options={priceElement.options}
+                        />
+                    ) : (
+                        <SimpleTableRow
+                            id={id}
+                            title={priceElement.title}
+                            price={getPrice(priceElement?.price || "0")}
+                        />
+                    ),
+                )
         }
     </table>
 </div>

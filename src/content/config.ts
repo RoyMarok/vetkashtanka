@@ -18,5 +18,8 @@ export const pricesCollection = defineCollection({
 
 export const collections = {
     'prices': pricesCollection,
+    'therapy': pricesCollection,
     'surgery': pricesCollection,
+    'oftal': pricesCollection,
+    'dental': pricesCollection,
 };
