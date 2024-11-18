@@ -28,7 +28,7 @@ const { title, collection, description } = Astro.props;
     <div class="caption-bold elisa-regular md:pl-0 pl-4 text-5xl">
         {title}
     </div>
-    {Boolean(description) && <p>{description}</p>}
+    {Boolean(description) && <p class="md:px-0 px-4">{description}</p>}
     <table class="my-10 w-full">
         {
             collection.data
