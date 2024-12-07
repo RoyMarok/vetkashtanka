@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CaptionWrapper from "../components/CaptionWrapper.astro";
+import IconContainer from "../components/IconContainer.astro";
+import calendar from "../assets/calendar.svg?raw";
+import coin from "../assets/coin.svg?raw";
+import phial from "../assets/phial.svg?raw";
+import syringe from "../assets/syringe.svg?raw";
+
+import { getPrice } from "../components/PriceTable.astro";
+---
+
+<Layout title="Акции">
+    <div class="text-content md:px-10 md:ml-40 md:py-10 py-6">
+        <IconContainer title="Что?" svgImg={syringe}>
+            <CaptionWrapper>
+                Вакцинация <strong>кошек</strong>
+            </CaptionWrapper>
+        </IconContainer>
+        <IconContainer title="Чем?" svgImg={phial}>
+            <CaptionWrapper>
+                Tricat <strong>Nobivac</strong>
+            </CaptionWrapper>
+        </IconContainer>
+        <IconContainer title="Почем?" svgImg={coin}>
+            <CaptionWrapper>
+                {getPrice("1500")}
+            </CaptionWrapper>
+        </IconContainer>
+        <IconContainer title="Когда?" svgImg={calendar}>
+            <CaptionWrapper>
+                <strong>до </strong> 30.11<strong>.2024</strong>
+            </CaptionWrapper>
+        </IconContainer>
+    </div>
+</Layout>

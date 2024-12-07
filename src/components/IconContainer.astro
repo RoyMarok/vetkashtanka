@@ -1,16 +1,22 @@
 ---
 interface Props {
-    title: string;
+    title?: string;
     svgImg: string;
 }
 
-const { title, svgImg } = Astro.props;
+const { title = "", svgImg } = Astro.props;
 ---
 
 <div class="mb-8 md:px-10">
-    <div class="title elisa-regular md:ml-24 ml-2 pl-2">{title}</div>
+    {
+        Boolean(title) && (
+            <div class="title elisa-regular md:ml-24 ml-2 px-2">{title}</div>
+        )
+    }
     <div class="md:flex justify-start">
-        <div class="svg list-marker md:max-h-auto max-h-0 md:visible invisible"><Fragment set:html={svgImg} /></div>
+        <div class="svg list-marker md:max-h-auto max-h-0 md:visible invisible">
+            <Fragment set:html={svgImg} />
+        </div>
         <div class="content md:ml-6 ml-4 mt-2 md:mt-0max-w-full">
             <slot />
         </div>

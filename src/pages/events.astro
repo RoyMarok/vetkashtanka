@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+import IconContainer from "../components/IconContainer.astro";
+import CaptionWrapper from "../components/CaptionWrapper.astro";
+import calendar from "../assets/calendar.svg?raw";
+import mail from "../assets/mail.svg?raw";
+import map from "../assets/map.svg?raw";
+import clock from "../assets/clock.svg?raw";
+---
+
+<Layout title="События">
+    <div class="text-content md:px-10 md:ml-40 md:py-10 py-6">
+        <IconContainer
+            title="Как работаем в новогодние праздники?"
+            svgImg={calendar}
+        >
+            <CaptionWrapper>
+                30<span class="text-xl opacity-60">.12.2024</span><strong>
+                    10-17</strong
+                >
+            </CaptionWrapper>
+            <CaptionWrapper>
+                31<span class="opacity-60"
+                    ><span class="text-xl">.12.2024</span>-</span
+                >02<span class="text-xl opacity-60">.01.2025</span>
+                <strong class="dark-high">выходные</strong>
+
+                <CaptionWrapper>
+                    03<span class="opacity-60"
+                        ><span class="text-xl">.01.2025</span>-</span
+                    >08<span class="text-xl opacity-60">.01.2025</span><strong>
+                        10-17</strong
+                    >
+                </CaptionWrapper>
+                <CaptionWrapper>
+                    07<span class="text-xl opacity-60">.01.2025</span><strong
+                        class="dark-high"
+                    >
+                        выходной</strong
+                    >
+                </CaptionWrapper>
+            </CaptionWrapper>
+        </IconContainer>
+    </div>
+</Layout>
+
+<style>
+    strong.dark-high {
+        color: var(--highlightDarkColor);
+    }
+</style>

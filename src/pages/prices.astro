@@ -21,7 +21,7 @@ const descriptionSurgery =
 ---
 
 <Layout title={pageName}>
-    <div class="text-content md:pl-14 md:pr-96 md:ml-72 py-10">
+    <div class="text-content md:pl-14 md:pr-96 md:ml-72 md:py-10 py-6">
         <PriceTable title={pageName} collection={pricesCommon} />
         <PriceTable
             title="Терапия"
@@ -33,13 +33,7 @@ const descriptionSurgery =
             collection={pricesSurgery}
             description={descriptionSurgery}
         />
-        <PriceTable
-            title="Стоматология"
-            collection={pricesDental}
-        />
-        <PriceTable
-            title="Офтальмология"
-            collection={pricesOftal}
-        />
+        <PriceTable title="Стоматология" collection={pricesDental} />
+        <PriceTable title="Офтальмология" collection={pricesOftal} />
     </div>
 </Layout>

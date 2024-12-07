@@ -9,7 +9,7 @@ import clock from "../assets/clock.svg?raw";
 ---
 
 <Layout title="">
-	<div class="text-content md:px-10 md:ml-40 w-max pt-20 pb-20">
+	<div class="text-content md:px-10 md:ml-40 md:py-10 py-6">
 		<IconContainer title="Куда звонить?" svgImg={phone}>
 			<CaptionWrapper>
 				<a href="tel:84952344260" title="Позвонить в клинику">
@@ -19,20 +19,25 @@ import clock from "../assets/clock.svg?raw";
 		</IconContainer>
 		<IconContainer title="Куда писать?" svgImg={mail}>
 			<CaptionWrapper>
-				<a href="mailto:vetkashtanka@mail.ru"
-					>vetkashtanka<strong>@mail.ru</strong></a
-				>
+				<a href="mailto:vetkashtanka@mail.ru">
+					vetkashtanka<strong>@mail.ru</strong>
+				</a>
 			</CaptionWrapper>
 		</IconContainer>
 		<IconContainer title="Когда приходить?" svgImg={clock}>
-			<CaptionWrapper>10-20</CaptionWrapper>
-			<p>Первичный прием врача до 19:30</p>
+			<CaptionWrapper
+				>10-20 <span
+					class="text-xl opacity-60 underline hover:opacity-100"
+					><a href="/events">изменения</a></span
+				></CaptionWrapper
+			>
+			<p class="text-2xl">Первичный прием врача до 19:30</p>
 		</IconContainer>
 		<IconContainer title="Как найти?" svgImg={map}>
 			<CaptionWrapper>
 				<strong>Москва</strong>
 			</CaptionWrapper>
-			<CaptionWrapper> ул.Металлургов, д.60 к.1</CaptionWrapper>
+			<CaptionWrapper>ул.Металлургов, д.60 к.1</CaptionWrapper>
 		</IconContainer>
 	</div>
 	<div class="">

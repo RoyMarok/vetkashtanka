@@ -1,4 +1,4 @@
-export const theme = {
+const lightTheme = {
     primary: '#2B2A29',
     secondary: '#5B5B5B',
     highlight: {
@@ -10,3 +10,19 @@ export const theme = {
         stop: '#ffffff'
     }
 }
+
+const darkTheme = {
+    primary: '#28231D',
+    // secondary: '#615441',
+    secondary: '#4D4431',
+    highlight: {
+        dark: '#2D4337',
+        light: '#61755C'
+    },
+    background: {
+        start: '#9C9B83',
+        stop: '#D8BEA5'
+    }
+}
+
+export const theme = lightTheme

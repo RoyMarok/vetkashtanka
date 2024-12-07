@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CaptionWrapper from "../components/CaptionWrapper.astro";
+import IconContainer from "../components/IconContainer.astro";
+import cap from "../assets/academic-cap.svg?raw";
+import nurse from "../assets/nurse.svg?raw";
+import princess from "../assets/princess.svg?raw";
+
+import { getPrice } from "../components/PriceTable.astro";
+---
+
+<Layout title="Коллектив">
+    <div class="text-content md:px-10 md:ml-40 w-max py-10">
+        <div class="caption-bold elisa-regular md:pl-36 pl-4 text-5xl mb-10">
+            Коллектив
+        </div>
+        <IconContainer title="Ветеринарныйй врач" svgImg={nurse}>
+            <CaptionWrapper>
+                Евстигнеева <strong>Елена Валерьевна</strong>
+            </CaptionWrapper>
+        </IconContainer>
+        <IconContainer title="Ветеринарныйй врач" svgImg={nurse}>
+            <CaptionWrapper>
+                Виноградова <strong>Яна Александровна</strong>
+            </CaptionWrapper>
+        </IconContainer>
+    </div>
+</Layout>
